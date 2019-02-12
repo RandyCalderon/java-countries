@@ -29,16 +29,18 @@ public class CountryController {
     }
 
     @RequestMapping("/size")
-    public ArrayList<Country> getbySize(@RequestParam(value="letters") int size) {
+    public Country getBySize(@RequestParam(value="letters") int size) {
         ArrayList<Country> countriesBySize = new ArrayList<>();
-        
+
         CountriesApplication.mainCountryList.countryList.forEach(c -> {
             if(c.getCountryName().length() == size) {
                 countriesBySize.add(c);
             }
         });
 
-        return countriesBySize;
+        Country maxCountry = countriesBySize.get(0);
+
+        return maxCountry;
     }
 
 }

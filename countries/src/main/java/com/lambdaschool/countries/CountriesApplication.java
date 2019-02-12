@@ -12,11 +12,6 @@ public class CountriesApplication {
     public static void main(String[] args) {
         mainCountryList = new CountryList();
 
-        ArrayList<Country> countriesByLetter = new ArrayList<>();
-
-
-        char letter = 'B';
-
         SpringApplication.run(CountriesApplication.class, args);
     }
 }

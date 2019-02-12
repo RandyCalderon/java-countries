@@ -9,24 +9,21 @@ public class Country {
     private int countryAge;
     private int landMassSize;
     private int population;
-    private int medianAge;
 
-    public Country(String countryName, int countryAge, int landMassSize, int population) {
+    public Country(String countryName,  int population, int landMassSize, int countryAge) {
         this.id = counter.incrementAndGet();
         this.countryName = countryName;
-        this.countryAge = countryAge;
         this.population = population;
         this.landMassSize = landMassSize;
-        this.medianAge = medianAge;
+        this.countryAge = countryAge;
     }
 
     public Country (Country toClone) {
         this.id = toClone.getId();
         this.countryName = toClone.getCountryName();
-        this.countryAge = toClone.getCountryAge();
         this.population = toClone.getPopulation();
         this.landMassSize = toClone.getLandMassSize();
-        this.medianAge = toClone.getMedianAge();
+        this.countryAge = toClone.getCountryAge();
     }
 
     public long getId() {
@@ -52,7 +49,4 @@ public class Country {
         return population;
     }
 
-    public int getMedianAge() {
-        return medianAge;
-    }
 }
