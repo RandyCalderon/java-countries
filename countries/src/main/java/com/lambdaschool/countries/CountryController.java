@@ -19,11 +19,26 @@ public class CountryController {
     @RequestMapping("/begin")
     public ArrayList<Country> getByLetter(@RequestParam(value="letter") char letter) {
         ArrayList<Country> countriesByLetter = new ArrayList<>();
+
         CountriesApplication.mainCountryList.countryList.forEach(c -> {
-            if(letter == c.getCountryName().charAt(0)) {
+            if(c.getCountryName().toLowerCase().charAt(0) == letter) {
                 countriesByLetter.add(c);
             }
         });
         return countriesByLetter;
     }
+
+    @RequestMapping("/size")
+    public ArrayList<Country> getbySize(@RequestParam(value="letters") int size) {
+        ArrayList<Country> countriesBySize = new ArrayList<>();
+        
+        CountriesApplication.mainCountryList.countryList.forEach(c -> {
+            if(c.getCountryName().length() == size) {
+                countriesBySize.add(c);
+            }
+        });
+
+        return countriesBySize;
+    }
+
 }
