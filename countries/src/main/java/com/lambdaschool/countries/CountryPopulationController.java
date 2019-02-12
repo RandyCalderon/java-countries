@@ -24,10 +24,25 @@ public class CountryPopulationController {
         return countryByPopulation;
     }
 
-    @RequestMapping("/max")
+//    @RequestMapping("/max")
+//    public ArrayList<Country> getMaxPopulation() {
+//        ArrayList<Country> countryByMax = new ArrayList<>();
+//        // Math.max() throws issues with reference?
+//        CountriesApplication.mainCountryList.countryList.sort((c1, c2) -> Math.max(c2.getPopulation(),c1.getPopulation()));
+//        CountriesApplication.mainCountryList.countryList.forEach(c -> {
+//            if(CountriesApplication.mainCountryList.countryList.get(0) == c) {
+//                countryByMax.add(c);
+//            }
+//        });
+//
+//        return countryByMax;
+//    }
+
+        @RequestMapping("/max")
     public ArrayList<Country> getMaxPopulation() {
         ArrayList<Country> countryByMax = new ArrayList<>();
-        CountriesApplication.mainCountryList.countryList.sort((c1, c2) -> Math.max(c1.getPopulation(), c2.getPopulation()));
+        // Math.max() throws issues with reference?
+        CountriesApplication.mainCountryList.countryList.sort((c1, c2) -> c2.getPopulation() - c1.getPopulation());
         CountriesApplication.mainCountryList.countryList.forEach(c -> {
             if(CountriesApplication.mainCountryList.countryList.get(0) == c) {
                 countryByMax.add(c);
@@ -37,10 +52,11 @@ public class CountryPopulationController {
         return countryByMax;
     }
 
-//   @RequestMapping("/min")
-//   public ArrayList<Country> getMinPopulation() {
-//        ArrayList<Country> countryByMin = new ArrayList();
-//        CountriesApplication.mainCountryList.countryList.sort((c1, c2) -> Math.min(c1.getPopulation(), c2.getPopulation()));
-//        return CountriesApplication.mainCountryList.countryList;
-//   }
+
+   @RequestMapping("/min")
+   public ArrayList<Country> getMinPopulation() {
+        ArrayList<Country> countryByMin = new ArrayList();
+        CountriesApplication.mainCountryList.countryList.sort((c1, c2) -> Math.min(c1.getPopulation(), c2.getPopulation()));
+        return CountriesApplication.mainCountryList.countryList;
+   }
 }
