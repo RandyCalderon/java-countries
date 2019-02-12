@@ -16,4 +16,7 @@ public class CountryController {
         return CountriesApplication.mainCountryList.countryList;
     }
 
+    public ArrayList<Country> getByLetter(@RequestParam(value="letter") char letter) {
+        
+    }
 }
