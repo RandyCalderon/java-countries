@@ -16,7 +16,14 @@ public class CountryController {
         return CountriesApplication.mainCountryList.countryList;
     }
 
+    @RequestMapping("/begin")
     public ArrayList<Country> getByLetter(@RequestParam(value="letter") char letter) {
-        
+        ArrayList<Country> countriesByLetter = new ArrayList<>();
+        CountriesApplication.mainCountryList.countryList.forEach(c -> {
+            if(letter == c.getCountryName().charAt(0)) {
+                countriesByLetter.add(c);
+            }
+        });
+        return countriesByLetter;
     }
 }

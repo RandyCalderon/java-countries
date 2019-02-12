@@ -7,15 +7,23 @@ public class Country {
     private long id;
     private String countryName;
     private int countryAge;
-    private int landingMassSize;
+    private int landMassSize;
     private int population;
 
-    public Country(String countryName, int countryAge, int landingMassSize, int population) {
+    public Country(String countryName, int countryAge, int landMassSize, int population) {
         this.id = counter.incrementAndGet();
         this.countryName = countryName;
         this.countryAge = countryAge;
         this.population = population;
-        this.landingMassSize = landingMassSize;
+        this.landMassSize = landMassSize;
+    }
+
+    public Country (Country toClone) {
+        this.id = toClone.getId();
+        this.countryName = toClone.getCountryName();
+        this.countryAge = toClone.getCountryAge();
+        this.population = toClone.getPopulation();
+        this.landMassSize = toClone.getLandMassSize();
     }
 
     public long getId() {
@@ -26,31 +34,23 @@ public class Country {
         return countryName;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
+
 
     public int getCountryAge() {
         return countryAge;
     }
 
-    public void setCountryAge(int countryAge) {
-        this.countryAge = countryAge;
+
+
+    public int getLandMassSize() {
+        return landMassSize;
     }
 
-    public int getLandingMassSize() {
-        return landingMassSize;
-    }
 
-    public void setLandingMassSize(int landingMassSize) {
-        this.landingMassSize = landingMassSize;
-    }
 
     public int getPopulation() {
         return population;
     }
 
-    public void setPopulation(int population) {
-        this.population = population;
-    }
+
 }
