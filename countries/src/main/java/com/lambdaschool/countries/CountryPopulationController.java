@@ -56,7 +56,13 @@ public class CountryPopulationController {
    @RequestMapping("/min")
    public ArrayList<Country> getMinPopulation() {
         ArrayList<Country> countryByMin = new ArrayList();
-        CountriesApplication.mainCountryList.countryList.sort((c1, c2) -> Math.min(c1.getPopulation(), c2.getPopulation()));
-        return CountriesApplication.mainCountryList.countryList;
+        CountriesApplication.mainCountryList.countryList.sort((c1, c2) -> c1.getPopulation() - c2.getPopulation());
+       CountriesApplication.mainCountryList.countryList.forEach(c -> {
+           if(CountriesApplication.mainCountryList.countryList.get(0) == c) {
+               countryByMin.add(c);
+           }
+       });
+
+       return countryByMin;
    }
 }
